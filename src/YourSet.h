@@ -54,6 +54,9 @@ class YourSet
         // Copy Constructor
         YourSet(const YourSet& other);
 
+        // Copy Assignment Operator
+        YourSet& operator=(const YourSet& other);
+
         // Some methods to interact with the set
         bool add(const std::string& data);
         bool remove(const std::string& data);

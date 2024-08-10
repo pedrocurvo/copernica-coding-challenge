@@ -165,3 +165,16 @@ std::unique_ptr<YourSet::Node> YourSet::clone(const std::unique_ptr<Node>& node)
 /// @brief Copy constructor of the "YourSet" class.
 /// @param other The "YourSet" to copy.
 YourSet::YourSet(const YourSet& other) : root(clone(other.root)), node_size(other.node_size) {}
+
+
+/// @brief Copy assignment operator of the "YourSet" class.
+/// @param other The "YourSet" to copy.
+/// @return A reference to the "YourSet".
+YourSet& YourSet::operator=(const YourSet& other) {
+    if (this != &other) {
+        clear(); // Just to make sure that the tree starts from scratch
+        root = clone(other.root);
+        node_size = other.node_size;
+    }
+    return *this;
+}
