@@ -83,6 +83,16 @@ And then run the executable:
 
 For the ```main_copernica.cpp``` replace the ```main.cpp``` in the command above.
 
+You can also use the Makefile to compile the files, for that you need to have a ```bin``` folder in the root directory, then you can use the following command:
+```
+make bin/yourfile.exe
+```
+And then run the executable:
+```
+./bin/yourfile.exe
+```
+
+
 
 
 
