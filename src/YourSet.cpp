@@ -289,5 +289,22 @@ bool YourSet::is_subset_of(const YourSet& other) const {
     return true;
 }
 
+/// @brief Overloading the output operator to print the "YourSet".
+/// @param os The output stream.
+/// @param set The "YourSet" to print.
+/// @return The output stream.
+std::ostream& operator<<(std::ostream& os, const YourSet& set) {
+    os << "{";
+    for(auto it = set.begin(); it != set.end(); ++it) {
+        os << *it;
+        auto temp = it; // This is just because I want the last one to not have a comma, prettiefy 
+        ++temp;
+        if (temp != set.end()) {
+            os << ", ";
+        }
+    }
+    os << "}";
+    return os;
+}
 
 

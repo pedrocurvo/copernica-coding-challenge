@@ -97,6 +97,9 @@ class YourSet
         YourSet difference_with(const YourSet& other) const;
         bool is_subset_of(const YourSet& other) const;
 
+        // I want to be able to print the set, so I will overload the << operator
+        friend std::ostream& operator<<(std::ostream& os, const YourSet& set);
+
 
 };
 
