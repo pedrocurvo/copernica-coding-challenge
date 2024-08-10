@@ -128,3 +128,10 @@ bool YourSet::remove(const std::string& value) {
 size_t YourSet::size() const {
     return node_size;
 }
+
+
+/// @brief Public function to check if the "YourSet" is empty.
+/// @return A boolean indicating if the "YourSet" is empty.
+bool YourSet::isEmtpy() const {
+    return node_size == 0;
+}
