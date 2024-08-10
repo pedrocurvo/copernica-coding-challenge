@@ -12,7 +12,9 @@ YourSet::YourSet(std::initializer_list<std::string> init_list) : root(nullptr), 
 }
 
 /// @brief Destructor of the "YourSet" class.
-YourSet::~YourSet() {} //TODO Implement the destructor
+YourSet::~YourSet() {
+    clear();
+}
 
 
 /// @brief Private function to evaluate if the BST contains the value. 
@@ -134,4 +136,11 @@ size_t YourSet::size() const {
 /// @return A boolean indicating if the "YourSet" is empty.
 bool YourSet::isEmtpy() const {
     return node_size == 0;
+}
+
+
+/// @brief Public function to clear the "YourSet".
+void YourSet::clear() {
+    root = nullptr;
+    node_size = 0;
 }

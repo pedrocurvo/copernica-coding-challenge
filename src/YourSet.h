@@ -56,6 +56,9 @@ class YourSet
         // Methods for size 
         size_t size() const;
         bool isEmtpy() const;
+
+        // Method to clear and use in the destructor
+        void clear();
 };
 
 
