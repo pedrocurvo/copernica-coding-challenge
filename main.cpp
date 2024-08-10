@@ -153,9 +153,17 @@ int main() {
     // Test the << operator
     std::cout << "First set" << std::endl << first_set_to_check << std::endl;
 
+    // Test the comparison operators
+    YourSet first_set_to_compare{"apple", "banana", "orange"};
+    YourSet second_set_to_compare{"banana", "orange", "strawberry"};
+    std::cout << "Are the first set and the second set equal ? " << (first_set_to_compare == second_set_to_compare ? "Yes" : "No") << std::endl;
+    std::cout << "Are the first set and the second set different ? " << (first_set_to_compare != second_set_to_compare ? "Yes" : "No") << std::endl;
 
-
-
+    // Test the comparison operators with the same set
+    YourSet first_set_to_compare_with_itself{"apple", "banana", "orange"};
+    YourSet second_set_to_compare_with_itself{"apple", "banana", "orange"};
+    std::cout << "Are the first set and the second set equal ? " << (first_set_to_compare_with_itself == second_set_to_compare_with_itself ? "Yes" : "No") << std::endl;
+    std::cout << "Are the first set and the second set different ? " << (first_set_to_compare_with_itself != second_set_to_compare_with_itself ? "Yes" : "No") << std::endl;
 
 
     return 0;
