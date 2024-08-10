@@ -95,6 +95,18 @@ int main() {
     std::cout << "Does set contain 'apple' ? " << (set_to_assign.contains("apple") ? "Yes" : "No") << std::endl;
 
 
+    // Test the iterator
+    YourSet set_to_iterate{"apple", "banana", "orange"};
+    for (auto it = set_to_iterate.begin(); it != set_to_iterate.end(); ++it) {
+        std::cout << *it << std::endl;
+    }
+
+    for(const auto& fruit : set_to_iterate) {
+        std::cout << fruit << std::endl;
+    }
+
+
+
 
     return 0;
 }
