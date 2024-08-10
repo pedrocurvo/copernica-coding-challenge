@@ -105,6 +105,51 @@ int main() {
         std::cout << fruit << std::endl;
     }
 
+    // Test the union
+    YourSet first_set{"apple", "banana", "orange"};
+    YourSet second_set_to_union{"banana", "orange", "strawberry"};
+    YourSet union_set = first_set.union_with(second_set_to_union);
+    std::cout << "Union set" << std::endl << "---" << std::endl;
+    for(const auto& fruit : union_set) {
+        std::cout << fruit << std::endl;
+    }
+    std::cout << "---" << std::endl;
+
+    // Test the intersection
+    YourSet first_set_to_intersect{"apple", "banana", "orange"};
+    YourSet second_set_to_intersect{"banana", "orange", "strawberry"};
+    YourSet intersection_set = first_set_to_intersect.intersection_with(second_set_to_intersect);
+    std::cout << "Intersection set" << std::endl << "---" << std::endl;
+    for(const auto& fruit : intersection_set) {
+        std::cout << fruit << std::endl;
+    }
+    std::cout << "---" << std::endl;
+
+    // Test the difference
+    YourSet first_set_to_diff{"apple", "banana", "orange"};
+    YourSet second_set_to_diff{"banana", "orange", "strawberry"};
+    YourSet difference_set = first_set_to_diff.difference_with(second_set_to_diff);
+    std::cout << "Difference set" << std::endl << "---" << std::endl;
+    for(const auto& fruit : difference_set) {
+        std::cout << fruit << std::endl;
+    }
+    std::cout << "---" << std::endl;
+
+    // Test the is subset
+    YourSet first_set_to_check{"apple", "banana", "orange"};
+    YourSet second_set_to_check{"banana", "orange"};
+    std::cout << "First set" << std::endl << "---" << std::endl;
+    for(const auto& fruit : first_set_to_check) {
+        std::cout << fruit << std::endl;
+    }
+    std::cout << "---" << std::endl;
+    std::cout << "Second set" << std::endl << "---" << std::endl;
+    for(const auto& fruit : second_set_to_check) {
+        std::cout << fruit << std::endl;
+    }
+    std::cout << "Is second set a subset of the first set ? " << (second_set_to_check.is_subset_of(first_set_to_check) ? "Yes" : "No") << std::endl;
+
+
 
 
 
