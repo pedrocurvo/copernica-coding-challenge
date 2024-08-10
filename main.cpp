@@ -29,6 +29,15 @@ int main() {
     // Try to add a value that is already in the set
     std::cout << "Adding 'apple' to the set : " << (set.add("apple") ? "Yes" : "No") << std::endl;
 
+    // Create a new set with an initializer list
+    YourSet second_set{"raspberry", "strawberry", "blueberry"};
+
+    // Check if the second set contains some values
+    std::cout << "Does second set contain 'raspberry' ? " << (second_set.contains("raspberry") ? "Yes" : "No") << std::endl;
+    std::cout << "Does second set contain 'strawberry' ? " << (second_set.contains("strawberry") ? "Yes" : "No") << std::endl;
+    std::cout << "Does second set contain 'blueberry' ? " << (second_set.contains("blueberry") ? "Yes" : "No") << std::endl;
+
+
 
     return 0;
 }
