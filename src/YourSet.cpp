@@ -225,7 +225,7 @@ bool YourSet::Iterator::operator!=(const Iterator& other) {
 
 /// @brief Public function to get the begin iterator of the "YourSet".
 /// @return An iterator to the first element of the "YourSet".
-YourSet::Iterator YourSet::begin() {
+YourSet::Iterator YourSet::begin() const {
     // Just need to get the iterator with the root of the BST.
     return Iterator(root.get());
 }
@@ -233,9 +233,61 @@ YourSet::Iterator YourSet::begin() {
 
 /// @brief Public function to get the end iterator of the "YourSet".
 /// @return An iterator to the last element of the "YourSet".
-YourSet::Iterator YourSet::end() {
+YourSet::Iterator YourSet::end() const {
     // Just need to get the iterator with a nullptr.
     return Iterator(nullptr);
 }
+
+
+/// @brief Public function to get the union of two "YourSet".
+/// @param other The other "YourSet" to make the union.
+/// @return A new "YourSet" with the union of the two "YourSet".
+YourSet YourSet::union_with(const YourSet& other) const {
+    YourSet result = *this; // copy of the current set
+    for (const auto& value : other) {
+        result.add(value);
+    }
+    return result;
+}
+
+
+/// @brief Public function to get the intersection of two "YourSet".
+/// @param other The other "YourSet" to make the intersection.
+/// @return A new "YourSet" with the intersection of the two "YourSet".
+YourSet YourSet::intersection_with(const YourSet& other) const {
+    YourSet result;
+    for (const auto& value : *this) {
+        if (other.contains(value)) {
+            result.add(value);
+        }
+    }
+    return result;
+}
+
+
+/// @brief Public function to get the difference of two "YourSet".
+/// @param other The other "YourSet" to make the difference.
+/// @return A new "YourSet" with the difference of the two "YourSet".
+YourSet YourSet::difference_with(const YourSet& other) const {
+    YourSet result = *this;
+    for (const auto& value : other) {
+        result.remove(value);
+    }
+    return result;
+}
+
+
+/// @brief Public function to check if the "YourSet" is a subset of another "YourSet".
+/// @param other The other "YourSet" to check if it is a subset.
+/// @return A boolean indicating if the "YourSet" is a subset of the other "YourSet".
+bool YourSet::is_subset_of(const YourSet& other) const {
+    for (const auto& value : *this) {
+        if (!other.contains(value)) {
+            return false;
+        }
+    }
+    return true;
+}
+
 
 

@@ -87,8 +87,17 @@ class YourSet
                 bool operator!=(const Iterator& other); // This is needed to check if the iterator is at the end of the set
         };
 
-        Iterator begin();
-        Iterator end();
+        Iterator begin() const;
+        Iterator end() const;
+
+
+        // Algebraic Operations with set (Union, Intersection, Difference, IsSubset)
+        YourSet union_with(const YourSet& other) const;
+        YourSet intersection_with(const YourSet& other) const;
+        YourSet difference_with(const YourSet& other) const;
+        bool is_subset_of(const YourSet& other) const;
+
+
 };
 
 
