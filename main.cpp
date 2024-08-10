@@ -77,6 +77,23 @@ int main() {
     std::cout << "Does set contain 'banana' ? " << (set_to_copy.contains("banana") ? "Yes" : "No") << std::endl;
     std::cout << "Does copied set contain 'banana' ? " << (copied_set.contains("banana") ? "Yes" : "No") << std::endl;
 
+    // Try copy assignment operator
+    YourSet set_to_assign{"apple", "banana", "orange"};
+    YourSet assigned_set;
+    assigned_set = set_to_assign;
+    std::cout << "Does assigned set contain 'apple' ? " << (assigned_set.contains("apple") ? "Yes" : "No") << std::endl;
+    std::cout << "Does assigned set contain 'banana' ? " << (assigned_set.contains("banana") ? "Yes" : "No") << std::endl;
+    std::cout << "Does assigned set contain 'orange' ? " << (assigned_set.contains("orange") ? "Yes" : "No") << std::endl;
+
+    // Check the size of the assigned set
+    std::cout << "Size of the assigned set : " << assigned_set.size() << std::endl;
+
+    // Remove some values from the assigned set and check if the original set is still the same
+    std::cout << "Removing 'apple' from the assigned set" << std::endl;
+    assigned_set.remove("apple");
+    std::cout << "Does assigned set contain 'apple' ? " << (assigned_set.contains("apple") ? "Yes" : "No") << std::endl;
+    std::cout << "Does set contain 'apple' ? " << (set_to_assign.contains("apple") ? "Yes" : "No") << std::endl;
+
 
 
     return 0;
