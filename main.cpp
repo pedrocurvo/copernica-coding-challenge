@@ -55,6 +55,28 @@ int main() {
     YourSet another_empty_set{};
     std::cout << "Size of the another empty set : " << another_empty_set.size() << std::endl;
 
+    // Try copy constructor
+    YourSet set_to_copy{"apple", "banana", "orange"};
+    YourSet copied_set(set_to_copy);
+    std::cout << "Does copied set contain 'apple' ? " << (copied_set.contains("apple") ? "Yes" : "No") << std::endl;
+    std::cout << "Does copied set contain 'banana' ? " << (copied_set.contains("banana") ? "Yes" : "No") << std::endl;
+    std::cout << "Does copied set contain 'orange' ? " << (copied_set.contains("orange") ? "Yes" : "No") << std::endl;
+
+    // Check the size of the copied set
+    std::cout << "Size of the copied set : " << copied_set.size() << std::endl;
+
+    // Remove some values from the copied set and check if the original set is still the same
+    std::cout << "Removing 'apple' from the copied set" << std::endl;
+    copied_set.remove("apple");
+    std::cout << "Does copied set contain 'apple' ? " << (copied_set.contains("apple") ? "Yes" : "No") << std::endl;
+    std::cout << "Does set contain 'apple' ? " << (set_to_copy.contains("apple") ? "Yes" : "No") << std::endl;
+
+    // Remove some values from the original set and check if the copied set is still the same
+    std::cout << "Removing 'banana' from the original set" << std::endl;
+    set_to_copy.remove("banana");
+    std::cout << "Does set contain 'banana' ? " << (set_to_copy.contains("banana") ? "Yes" : "No") << std::endl;
+    std::cout << "Does copied set contain 'banana' ? " << (copied_set.contains("banana") ? "Yes" : "No") << std::endl;
+
 
 
     return 0;
