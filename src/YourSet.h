@@ -25,6 +25,10 @@ class YourSet
             // and initialize the left and right pointers to nullptr
             Node(const std::string& data) : data(data), left(nullptr), right(nullptr) {}
         };
+
+        // This will be the root of the BST, used a unique_ptr to avoid memory leaks or maybe when copying the set
+        // two pointers pointing to the same node, which could lead to wrongly deleting the node.
+        std::unique_ptr<Node> root;
     
 
     public:
