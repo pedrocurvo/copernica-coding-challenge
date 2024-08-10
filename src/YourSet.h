@@ -35,6 +35,7 @@ class YourSet
         // and inside add and remove methods.
         bool contains(const Node* node, const std::string& data) const;
         std::unique_ptr<Node> add(std::unique_ptr<Node> node, const std::string& value);
+        std::unique_ptr<Node> remove(std::unique_ptr<Node> node, const std::string& value);
     
 
     public:
