@@ -72,7 +72,7 @@ some situations.
 ## How to run
 To run the tests, just compile the main.cpp file with the YourSet.cpp file. You can use the following command:
 ```
-g++ -std=c++11 main.cpp YourSet.cpp -o main
+g++ -std=c++17 -Wall -I src/ src/YourSet.cpp main.cpp -o main
 ```
 And then run the executable:
 ```
