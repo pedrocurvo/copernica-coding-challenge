@@ -59,6 +59,9 @@ std::unique_ptr<YourSet::Node> YourSet::add(std::unique_ptr<Node> node, const st
 /// @param value The value to insert.
 /// @return A boolean indicating if the value was inserted.
 bool YourSet::add(const std::string& value) {
+    if (contains(value)) {
+        return false;
+    }
     // Need to move the root, since the add function will modify the tree.
     root = add(std::move(root), value);
     return true;
@@ -101,6 +104,9 @@ std::unique_ptr<YourSet::Node> YourSet::remove(std::unique_ptr<Node> node, const
 /// @param value The value to remove.
 /// @return A boolean indicating if the value was removed.
 bool YourSet::remove(const std::string& value) {
+    if (!contains(value)) {
+        return false;
+    }
     // Need to move the root, since the remove function will modify the tree.
     root = remove(std::move(root), value);
     return true;
