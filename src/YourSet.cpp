@@ -1,11 +1,11 @@
 #include "YourSet.h"
 
 /// @brief Empty onstructor of the "YourSet" class.
-YourSet::YourSet() : root(nullptr) {}
+YourSet::YourSet() : root(nullptr), node_size(0) {}
 
 /// @brief Constructor of the "YourSet" class.
 /// @param init_list The list of strings to initialize the "YourSet".
-YourSet::YourSet(std::initializer_list<std::string> init_list) : root(nullptr) {
+YourSet::YourSet(std::initializer_list<std::string> init_list) : root(nullptr), node_size(0) {
     for (const std::string& value : init_list) {
         add(value);
     }
@@ -72,6 +72,7 @@ bool YourSet::add(const std::string& value) {
     }
     // Need to move the root, since the add function will modify the tree.
     root = add(std::move(root), value);
+    node_size++;
     return true;
 }
 
@@ -117,5 +118,13 @@ bool YourSet::remove(const std::string& value) {
     }
     // Need to move the root, since the remove function will modify the tree.
     root = remove(std::move(root), value);
+    node_size--;
     return true;
+}
+
+
+/// @brief Public function to get the size of the "YourSet".
+/// @return The number of elements in the "YourSet".
+size_t YourSet::size() const {
+    return node_size;
 }

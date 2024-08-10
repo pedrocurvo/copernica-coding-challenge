@@ -31,6 +31,9 @@ class YourSet
         // two pointers pointing to the same node, which could lead to wrongly deleting the node.
         std::unique_ptr<Node> root;
 
+        // I will need a size variable to keep track of the number of elements in the set
+        size_t node_size;
+
         // I will need some "helpers" to interact with the Tree but dont want to expose them to the user
         // hence, I will make them private, starting with contain method that needs to be used recursively
         // and inside add and remove methods.
@@ -49,6 +52,9 @@ class YourSet
         bool add(const std::string& data);
         bool remove(const std::string& data);
         bool contains(const std::string& data) const;
+
+        // Methods for size 
+        size_t size() const;
 };
 
 
