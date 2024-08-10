@@ -141,6 +141,6 @@ bool YourSet::isEmtpy() const {
 
 /// @brief Public function to clear the "YourSet".
 void YourSet::clear() {
-    root = nullptr;
+    root.reset();
     node_size = 0;
 }
