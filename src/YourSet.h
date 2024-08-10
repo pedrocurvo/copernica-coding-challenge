@@ -2,6 +2,7 @@
 #define YOUR_SET_H
 
 #include <iostream>
+#include <initializer_list>
 
 class YourSet
 {
@@ -41,6 +42,7 @@ class YourSet
     public:
         // Constructors and Destructors
         YourSet();
+        YourSet(std::initializer_list<std::string> init_list);
         ~YourSet();
 
         // Some methods to interact with the set

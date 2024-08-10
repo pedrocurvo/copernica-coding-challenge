@@ -3,6 +3,14 @@
 /// @brief Empty onstructor of the "YourSet" class.
 YourSet::YourSet() : root(nullptr) {}
 
+/// @brief Constructor of the "YourSet" class.
+/// @param init_list The list of strings to initialize the "YourSet".
+YourSet::YourSet(std::initializer_list<std::string> init_list) : root(nullptr) {
+    for (const std::string& value : init_list) {
+        add(value);
+    }
+}
+
 /// @brief Destructor of the "YourSet" class.
 YourSet::~YourSet() {} //TODO Implement the destructor
 
