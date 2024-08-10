@@ -1,5 +1,8 @@
 #include "YourSet.h"
 
+/// @brief Empty onstructor of the "YourSet" class.
+YourSet::YourSet() : root(nullptr) {}
+
 
 /// @brief Private function to evaluate if the BST contains the value. 
 /// @param node The node to start the search.
