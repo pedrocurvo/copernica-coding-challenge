@@ -20,3 +20,12 @@ bool YourSet::contains(const Node* node, const std::string& value) const {
         return contains(node->right.get(), value);
     }
 }
+
+
+/// @brief Public function to evaluate if the "YourSet" contains the value.
+/// @param value The value to search for.
+/// @return A boolean indicating if the value is in the "YourSet".
+bool YourSet::contains(const std::string& value) const {
+    // Dont need to pass the root, since the private function will start the search from the root.
+    return contains(root.get(), value);
+}
