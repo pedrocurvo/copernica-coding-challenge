@@ -150,6 +150,11 @@ int main() {
     std::cout << "Is second set a subset of the first set ? " << (second_set_to_check.is_subset_of(first_set_to_check) ? "Yes" : "No") << std::endl;
 
 
+    // Test the << operator
+    std::cout << "First set" << std::endl << first_set_to_check << std::endl;
+
+
+
 
 
 
