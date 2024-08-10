@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include <initializer_list>
+#include <stack>
 
 class YourSet
 {
@@ -68,6 +69,26 @@ class YourSet
 
         // Method to clear and use in the destructor
         void clear();
+
+        // Iterator to iterate over the set
+        // I am using a BST so I can use a in order to iterate over the set and get it sorted
+        // The tree is already arranged in a way that is "sorted". I used a stack to keep track of the nodes
+        // that I have visited and the current node that I am visiting.
+        class Iterator
+        {
+            private:
+                Node* current;
+                std::stack<Node*> stack;
+
+            public:
+                Iterator(Node* root);
+                std::string operator*(); // This is needed to get the value of the current node,e.g, printing the value
+                Iterator& operator++(); // This is needed to move to the next element (node) in the set (BST)
+                bool operator!=(const Iterator& other); // This is needed to check if the iterator is at the end of the set
+        };
+
+        Iterator begin();
+        Iterator end();
 };
 
 

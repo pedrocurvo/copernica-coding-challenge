@@ -178,3 +178,64 @@ YourSet& YourSet::operator=(const YourSet& other) {
     }
     return *this;
 }
+
+
+/// @brief Iterator constructor of the "YourSet" class.
+/// @param root The root of the BST.
+YourSet::Iterator::Iterator(Node* root) : current(root) {
+    while (current != nullptr) {
+        stack.push(current);
+        current = current->left.get();
+    }
+}
+
+
+/// @brief Iterator dereference operator of the "YourSet" class.
+/// @return The value of the current node.
+std::string YourSet::Iterator::operator*() {
+    // So I need to get the current node that is the top of the stack
+    // and returns its data, which is a string.
+    return stack.top()->data;
+}
+
+
+/// @brief Iterator increment operator of the "YourSet" class.
+/// @return A reference to the iterator.
+YourSet::Iterator& YourSet::Iterator::operator++() {
+    current = stack.top();
+    stack.pop();
+    if (current->right != nullptr) {
+        current = current->right.get();
+        while (current != nullptr) {
+            stack.push(current);
+            current = current->left.get();
+        }
+    }
+    return *this;
+}
+
+
+/// @brief Iterator inequality operator of the "YourSet" class.
+/// @param other The other iterator to compare.
+/// @return A boolean indicating if the iterators are different.
+bool YourSet::Iterator::operator!=(const Iterator& other) {
+    return stack.size() != other.stack.size();
+}
+
+
+/// @brief Public function to get the begin iterator of the "YourSet".
+/// @return An iterator to the first element of the "YourSet".
+YourSet::Iterator YourSet::begin() {
+    // Just need to get the iterator with the root of the BST.
+    return Iterator(root.get());
+}
+
+
+/// @brief Public function to get the end iterator of the "YourSet".
+/// @return An iterator to the last element of the "YourSet".
+YourSet::Iterator YourSet::end() {
+    // Just need to get the iterator with a nullptr.
+    return Iterator(nullptr);
+}
+
+
