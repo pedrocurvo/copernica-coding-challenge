@@ -308,3 +308,30 @@ std::ostream& operator<<(std::ostream& os, const YourSet& set) {
 }
 
 
+/// @brief Overloading the equality operator to compare two "YourSet".
+/// @param other The other "YourSet" to compare.
+/// @return A boolean indicating if the two "YourSet" are equal.
+bool YourSet::operator==(const YourSet& other) const {
+    if (node_size != other.node_size) {
+        return false;
+    }
+
+    for (const auto& value : *this) {
+        if (!other.contains(value)) {
+            return false;
+        }
+    }
+
+    return true;
+}
+
+
+/// @brief Overloading the inequality operator to compare two "YourSet".
+/// @param other The other "YourSet" to compare.
+/// @return A boolean indicating if the two "YourSet" are different.
+bool YourSet::operator!=(const YourSet& other) const {
+    return !(*this == other);
+}
+
+
+

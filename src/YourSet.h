@@ -100,6 +100,10 @@ class YourSet
         // I want to be able to print the set, so I will overload the << operator
         friend std::ostream& operator<<(std::ostream& os, const YourSet& set);
 
+        // Comparison operators
+        bool operator==(const YourSet& other) const;
+        bool operator!=(const YourSet& other) const;
+
 
 };
 
