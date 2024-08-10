@@ -40,6 +40,9 @@ class YourSet
         bool contains(const Node* node, const std::string& data) const;
         std::unique_ptr<Node> add(std::unique_ptr<Node> node, const std::string& value);
         std::unique_ptr<Node> remove(std::unique_ptr<Node> node, const std::string& value);
+
+        // Helper function to deeply "clone" the tree, used in the copy constructor
+        std::unique_ptr<Node> clone(const std::unique_ptr<Node>& node) const;
     
 
     public:
@@ -47,6 +50,9 @@ class YourSet
         YourSet();
         YourSet(std::initializer_list<std::string> init_list);
         ~YourSet();
+
+        // Copy Constructor
+        YourSet(const YourSet& other);
 
         // Some methods to interact with the set
         bool add(const std::string& data);

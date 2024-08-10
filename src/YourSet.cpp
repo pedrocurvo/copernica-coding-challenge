@@ -144,3 +144,24 @@ void YourSet::clear() {
     root.reset();
     node_size = 0;
 }
+
+
+/// @brief Private function to deeply clone the BST.
+/// @param node The node to start the cloning.
+/// @return A pointer to the new node.
+std::unique_ptr<YourSet::Node> YourSet::clone(const std::unique_ptr<Node>& node) const {
+    if (node == nullptr) {
+        return nullptr;
+    }
+
+    std::unique_ptr<Node> newNode = std::make_unique<Node>(node->data);
+    newNode->left = clone(node->left);
+    newNode->right = clone(node->right);
+
+    return newNode;
+}
+
+
+/// @brief Copy constructor of the "YourSet" class.
+/// @param other The "YourSet" to copy.
+YourSet::YourSet(const YourSet& other) : root(clone(other.root)), node_size(other.node_size) {}
