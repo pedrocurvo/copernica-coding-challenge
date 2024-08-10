@@ -42,7 +42,7 @@ bool YourSet::contains(const std::string& value) const {
 /// @param value The value to insert.
 /// @return A pointer to the new node.
 std::unique_ptr<YourSet::Node> YourSet::add(std::unique_ptr<Node> node, const std::string& value) {
-    if (node == nullptr) {
+    if (!node) {
         return std::make_unique<Node>(value);
     }
 
@@ -75,29 +75,25 @@ bool YourSet::add(const std::string& value) {
 /// @param value The value to remove.
 /// @return A pointer to the new node.
 std::unique_ptr<YourSet::Node> YourSet::remove(std::unique_ptr<Node> node, const std::string& value) {
-    if (node == nullptr) {
-        return nullptr;
-    }
-
+    if (!node) return nullptr;
     if (value < node->data) {
         node->left = remove(std::move(node->left), value);
     } else if (value > node->data) {
         node->right = remove(std::move(node->right), value);
     } else {
-        if (node->left == nullptr) {
+        if (!node->left) {
             return std::move(node->right);
-        } else if (node->right == nullptr) {
+        } else if (!node->right) {
             return std::move(node->left);
         } else {
             Node* minNode = node->right.get();
-            while (minNode->left != nullptr) {
+            while (minNode->left) {
                 minNode = minNode->left.get();
             }
             node->data = minNode->data;
             node->right = remove(std::move(node->right), minNode->data);
         }
     }
-
     return node;
 }
 
@@ -141,9 +137,7 @@ void YourSet::clear() {
 /// @param node The node to start the cloning.
 /// @return A pointer to the new node.
 std::unique_ptr<YourSet::Node> YourSet::clone(const std::unique_ptr<Node>& node) const {
-    if (node == nullptr) {
-        return nullptr;
-    }
+    if (!node) return nullptr;
 
     std::unique_ptr<Node> newNode = std::make_unique<Node>(node->data);
     newNode->left = clone(node->left);
@@ -174,7 +168,7 @@ YourSet& YourSet::operator=(const YourSet& other) {
 /// @brief Iterator constructor of the "YourSet" class.
 /// @param root The root of the BST.
 YourSet::Iterator::Iterator(Node* root) : current(root) {
-    while (current != nullptr) {
+    while (current) {
         stack.push(current);
         current = current->left.get();
     }
@@ -195,9 +189,9 @@ std::string YourSet::Iterator::operator*() {
 YourSet::Iterator& YourSet::Iterator::operator++() {
     current = stack.top();
     stack.pop();
-    if (current->right != nullptr) {
+    if (current->right) {
         current = current->right.get();
-        while (current != nullptr) {
+        while (current) {
             stack.push(current);
             current = current->left.get();
         }
