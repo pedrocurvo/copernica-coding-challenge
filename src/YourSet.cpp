@@ -3,6 +3,9 @@
 /// @brief Empty onstructor of the "YourSet" class.
 YourSet::YourSet() : root(nullptr) {}
 
+/// @brief Destructor of the "YourSet" class.
+YourSet::~YourSet() {} //TODO Implement the destructor
+
 
 /// @brief Private function to evaluate if the BST contains the value. 
 /// @param node The node to start the search.
