@@ -60,12 +60,14 @@ some situations.
 - YourSet.h: Header file with the class definition
 - YourSet.cpp: Implementation file with the class implementation
 - main.cpp: Main file with the tests
+- main_copernica.cpp: Main file with the tests provided by Copernica
 
 ```
 ├── src/
 │   ├── YourSet.cpp     # Implementation of the YourSet class or functions
 │   ├── YourSet.h       # Header file for the YourSet class or functions
 ├── main.cpp            # File with some tests for the YourSet class (some prints to check the results, not a real test) 
+├── main_copernica.cpp  # File with the tests provided by Copernica
 └── README.md           # Project documentation
 ```
 
@@ -78,6 +80,9 @@ And then run the executable:
 ```
 ./main
 ```
+
+For the ```main_copernica.cpp``` replace the ```main.cpp``` in the command above.
+
 
 
 
