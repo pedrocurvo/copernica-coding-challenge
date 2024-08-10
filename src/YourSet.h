@@ -34,6 +34,7 @@ class YourSet
         // hence, I will make them private, starting with contain method that needs to be used recursively
         // and inside add and remove methods.
         bool contains(const Node* node, const std::string& data) const;
+        std::unique_ptr<Node> add(std::unique_ptr<Node> node, const std::string& value);
     
 
     public:
