@@ -1,5 +1,12 @@
 # Copernica Coding Challenge - Custom Set
 
+## Index
+- [Copernica Coding Challenge - Custom Set](#copernica-coding-challenge---custom-set)
+  - [Index](#index)
+  - [My approach](#my-approach)
+  - [File structure](#file-structure)
+  - [How to run](#how-to-run)
+
 ## My approach
 My first taught was to implement a set using a hash table, due to the O(1) time complexity for insertions, deletions and
 searches. However, when the data (strings) start to grow in number, the hash table would have a lot of collisions, 
