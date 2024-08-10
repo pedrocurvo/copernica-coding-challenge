@@ -29,12 +29,22 @@ class YourSet
         // This will be the root of the BST, used a unique_ptr to avoid memory leaks or maybe when copying the set
         // two pointers pointing to the same node, which could lead to wrongly deleting the node.
         std::unique_ptr<Node> root;
+
+        // I will need some "helpers" to interact with the Tree but dont want to expose them to the user
+        // hence, I will make them private, starting with contain method that needs to be used recursively
+        // and inside add and remove methods.
+        bool contains(const Node* node, const std::string& data) const;
     
 
     public:
         // Constructors and Destructors
         YourSet();
         ~YourSet();
+
+        // Some methods to interact with the set
+        bool add(const std::string& data);
+        bool remove(const std::string& data);
+        bool contains(const std::string& data) const;
 };
 
 
